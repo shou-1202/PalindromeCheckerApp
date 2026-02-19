@@ -1,18 +1,27 @@
 import java.util.Scanner;
 public class PalindromeCheckerApp{
     public static void main(String[] args){
-        String s1,s2 = "";
+        String s1;
         Scanner input = new Scanner(System.in);
         System.out.println("Enter a String: ");
         s1 = input.nextLine();
-        for(int i = s1.length()-1;i>=0; i--){
-            s2 += s1.charAt(i);
+        char[] arr = s1.toCharArray();
+        int start = 0, end = arr.length - 1;
+        boolean isPalindrome = true;
+        while(start<end){
+            if(arr[start] != arr[end]){
+                isPalindrome = false;
+                break;
+            }
+            start++;
+            end--;
         }
-        if(s1.equalsIgnoreCase(s2)){
+        if(isPalindrome){
             System.out.println("It is a palindrome");
         }
         else{
             System.out.println("It is not a palindrome");
         }
+
     }
 }
